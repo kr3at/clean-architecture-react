@@ -1,4 +1,4 @@
-import { Post } from '../entity/Post';
+import { Post } from "../entity/Post.entity";
 
 export interface PostRepository {
   // Métodos básicos CRUD

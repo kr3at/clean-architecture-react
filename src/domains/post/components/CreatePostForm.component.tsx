@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreatePost } from '../hooks/useCreatePost';
+import { useCreatePost } from '../hooks/useCreatePost.hook';
 
 interface CreatePostFormProps {
   authorId: string;

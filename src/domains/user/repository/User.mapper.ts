@@ -1,11 +1,11 @@
 import { injectable } from 'tsyringe';
-import { User } from '../entity/User';
-import { CreateUserDTO, UserResponseDTO } from '../dto/UserDTO';
-import { Mapper } from '../../../shared/infrastructure/mappers/Mapper';
+import { Mapper } from '../../../shared/infrastructure/mappers/Mapper.interface';
+import { User } from '../entity/User.entity';
+import { UserDTO } from '../dto/User.dto';
 
 @injectable()
-export class UserMapper implements Mapper<User, UserResponseDTO> {
-  toDomain(raw: UserResponseDTO): User {
+export class UserMapper implements Mapper<User, UserDTO.UserResponse> {
+  toDomain(raw: UserDTO.UserResponse): User {
     return new User(
       raw.id,
       raw.email,
@@ -16,7 +16,7 @@ export class UserMapper implements Mapper<User, UserResponseDTO> {
     );
   }
 
-  fromDomain(entity: User): UserResponseDTO {
+  fromDomain(entity: User): UserDTO.UserResponse {
     return {
       id: entity.id,
       email: entity.email,
@@ -28,7 +28,7 @@ export class UserMapper implements Mapper<User, UserResponseDTO> {
   }
 
   // Método adicional específico para la creación
-  fromCreateDTO(dto: CreateUserDTO): User {
+  fromCreateDTO(dto: UserDTO.Create): User {
     return new User(
       crypto.randomUUID(), // Generamos un nuevo ID
       dto.email,

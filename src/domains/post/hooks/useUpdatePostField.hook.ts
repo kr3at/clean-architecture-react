@@ -2,8 +2,8 @@ import { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { AppDispatch } from '../../../shared/infrastructure/store/store';
 import { container } from 'tsyringe';
-import { UpdatePostFieldUseCase } from '../useCases/UpdatePostFieldUseCase';
-import { UpdatePostFieldParams } from '../dto/UpdatePostFieldParams';
+import { UpdatePostFieldParams } from '../dto/UpdatePostField.params';
+import { UpdatePostFieldUseCase } from '../useCases/UpdatePostField.useCase';
 
 export const useUpdatePostField = () => {
   // const dispatch = useDispatch<AppDispatch>();
@@ -16,10 +16,10 @@ export const useUpdatePostField = () => {
       setError(null);
       
       // Obtenemos el caso de uso del contenedor
-      // const useCase = container.resolve(UpdatePostFieldUseCase);
+      const useCase = container.resolve(UpdatePostFieldUseCase);
       
       // Ejecutamos el caso de uso
-      // await useCase.execute(params);
+      await useCase.execute(params);
       
       // Aquí podrías dispatchear una acción de Redux para actualizar el estado
       // dispatch(updatePostFieldInStore(params));

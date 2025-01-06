@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNotifications } from '../hook/useNotfications';
+import { useNotifications } from '../hook/useNotfications.hook';
 
 export const NotificationCenter: React.FC = () => {
   const { recentPosts, notifications } = useNotifications();

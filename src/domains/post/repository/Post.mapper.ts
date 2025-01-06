@@ -1,11 +1,11 @@
-import { injectable } from 'tsyringe';
-import { Post } from '../entity/Post';
-import { CreatePostDTO, PostResponseDTO } from '../dto/PostDTO';
-import { Mapper } from '../../../shared/infrastructure/mappers/Mapper';
+import { injectable } from "tsyringe";
+import { Mapper } from "../../../shared/infrastructure/mappers/Mapper.interface";
+import { Post } from "../entity/Post.entity";
+import { PostDTO } from "../dto/Post.dto";
 
 @injectable()
-export class PostMapper implements Mapper<Post, PostResponseDTO> {
-  toDomain(raw: PostResponseDTO): Post {
+export class PostMapper implements Mapper<Post, PostDTO.PostResponse> {
+  toDomain(raw: PostDTO.PostResponse): Post {
     return new Post(
       raw.id,
       raw.title,
@@ -16,7 +16,7 @@ export class PostMapper implements Mapper<Post, PostResponseDTO> {
     );
   }
 
-  fromDomain(entity: Post): PostResponseDTO {
+  fromDomain(entity: Post): PostDTO.PostResponse {
     return {
       id: entity.id,
       title: entity.title,
@@ -28,7 +28,7 @@ export class PostMapper implements Mapper<Post, PostResponseDTO> {
   }
 
   // Método adicional específico para la creación
-  fromCreateDTO(dto: CreatePostDTO): Post {
+  fromCreateDTO(dto: PostDTO.Create): Post {
     return new Post(
       crypto.randomUUID(),
       dto.title,

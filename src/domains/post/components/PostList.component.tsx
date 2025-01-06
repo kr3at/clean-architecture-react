@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../shared/infrastructure/store/store';
-import { PostListItem } from './PostListItem';
-import { useLoadPosts } from '../hooks/useLoadPosts';
+import { PostListItem } from './PostListItem.component';
+import { useLoadPosts } from '../hooks/useLoadPosts.hook';
 
 interface PostListProps {
   authorId: string;

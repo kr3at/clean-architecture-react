@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
-import { PostRepository } from '../PostRepository';
-import { Post } from '../../entity/Post';
-import { ApiClient } from '../../../../shared/infrastructure/http/ApiClient';
-import { PostMapper } from '../PostMapper';
+import { PostRepository } from './PostRepository.interface';
+import { ApiClient } from '../../../shared/infrastructure/http/ApiClient';
+import { PostMapper } from './Post.mapper';
+import { Post } from '../entity/Post.entity';
 
 @injectable()
 export class PostRepositoryImpl implements PostRepository {

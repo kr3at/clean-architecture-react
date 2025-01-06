@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import { EventBus } from '../../../shared/infrastructure/events/EventBus';
-import { Post } from '../../post/entity/Post';
+import { Post } from '../../post/entity/Post.entity';
 
 interface NotificationState {
   recentPosts: Post[];

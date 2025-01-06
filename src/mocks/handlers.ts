@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw'
-import { Post } from '../domains/post/entity/Post'
+import { Post } from '../domains/post/entity/Post.entity';
 
 const mockPosts = [
     {

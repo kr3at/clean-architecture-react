@@ -1,11 +1,8 @@
 //@ts-ignore
 import { inject, injectable } from 'tsyringe';
-import { UseCase } from '../../../shared/domain/UseCase';
-import { EventBus } from '../../../shared/infrastructure/events/EventBus';
-import { Post } from '../../post/entity/Post';
-import { CreatePostDTO } from '../../post/dto/PostDTO';
-import { PostRepository } from '../../post/repository/PostRepository';
-import { PostMapper } from '../../post/repository/PostMapper';
+import { Post } from '../entity/Post.entity';
+import { UseCase } from '../../../shared/domain/UseCase.shared';
+import { PostDTO } from '../dto/Post.dto';
 
 // Definimos una interfaz para el resultado del caso de uso
 export interface CreatePostResult {
@@ -13,7 +10,7 @@ export interface CreatePostResult {
 }
 
 @injectable()
-export class CreatePostUseCase implements UseCase<CreatePostDTO, CreatePostResult> {
+export class CreatePostUseCase implements UseCase<PostDTO.Create, CreatePostResult> {
   constructor(
     //@ts-ignore
     @inject('PostRepository') private postRepository: PostRepository,
@@ -23,7 +20,7 @@ export class CreatePostUseCase implements UseCase<CreatePostDTO, CreatePostResul
     @inject(EventBus) private eventBus: EventBus
   ) {}
 
-  async execute(params: CreatePostDTO): Promise<CreatePostResult> {
+  async execute(params: PostDTO.Create): Promise<CreatePostResult> {
     console.log('veamos los params', params)
 
     const post = this.postMapper.fromCreateDTO(params);

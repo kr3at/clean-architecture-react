@@ -1,13 +1,13 @@
 import { inject, injectable } from "tsyringe";
-import { UseCase } from "../../../shared/domain/UseCase";
-import type { PostRepository } from "../repository/PostRepository";
+import { UseCase } from "../../../shared/domain/UseCase.shared";
+import { UpdatePostFieldParams } from "../dto/UpdatePostField.params";
+import * as PostRepositoryInterface from "../repository/PostRepository.interface";
 import { EventBus } from "../../../shared/infrastructure/events/EventBus";
-import { UpdatePostFieldParams } from "../dto/UpdatePostFieldParams";
 
 @injectable()
 export class UpdatePostFieldUseCase implements UseCase<UpdatePostFieldParams, void> {
   constructor(
-    @inject('PostRepository') private postRepository: PostRepository,
+    @inject('PostRepository') private postRepository: PostRepositoryInterface.PostRepository,
     @inject(EventBus) private eventBus: EventBus
   ) {}
 

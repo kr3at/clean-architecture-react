@@ -1,18 +1,21 @@
-export interface CreateUserDTO {
-  email: string;
-  username: string;
-  password: string;
-}
+export namespace UserDTO {
 
-export interface UpdateUserDTO {
-  username?: string;
-  email?: string;
-}
+  export interface Create {
+    email: string;
+    username: string;
+    password: string;
+  }
 
-export interface UserResponseDTO {
-  id: string;
-  email: string;
-  username: string;
-  createdAt: Date;
-  updatedAt: Date;
+  export interface Update {
+    username?: string;
+    email?: string;
+  }
+
+  export interface UserResponse {
+    id: string;
+    email: string;
+    username: string;
+    createdAt: Date;
+    updatedAt: Date;
+  }
 }

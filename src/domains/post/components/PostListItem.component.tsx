@@ -1,7 +1,7 @@
 // src/domains/post/components/PostListItem.tsx
 import React from 'react';
-import { Post } from '../entity/Post';
-import { InlineEditField } from './InlineEditField';
+import { Post } from '../entity/Post.entity';
+import { InlineEditField } from './InlineEditField.component';
 
 interface PostListItemProps {
   post: Post;

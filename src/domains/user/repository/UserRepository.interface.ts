@@ -1,4 +1,4 @@
-import { User } from '../entity/User';
+import { User } from "../entity/User.entity";
 
 export interface UserRepository {
   // Métodos básicos CRUD

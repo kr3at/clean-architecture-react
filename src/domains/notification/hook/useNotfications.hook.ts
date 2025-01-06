@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { container } from 'tsyringe';
-import { GetRecentNotificationsUseCase } from '../useCases/GetRecentNotificationsUseCase';
-import { Post } from '../../post/entity/Post';
+import { Post } from '../../post/entity/Post.entity';
+import { GetRecentNotificationsUseCase } from '../useCases/GetRecentNotifications.useCase';
 
 export const useNotifications = () => {
   const [recentPosts, setRecentPosts] = useState<Post[]>([]);

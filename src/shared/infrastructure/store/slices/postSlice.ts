@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { container } from 'tsyringe';
-import { Post } from '../../../../domains/post/entity/Post';
-import { CreatePostDTO } from '../../../../domains/post/dto/PostDTO';
-import { CreatePostUseCase } from '../../../../domains/user/useCases/CreatePostUseCase';
-import { GetPostsByAuthorUseCase } from '../../../../domains/post/useCases/GetPostsByAuthorUseCase';
+import { Post } from '../../../../domains/post/entity/Post.entity';
+import { PostDTO } from '../../../../domains/post/dto/Post.dto';
+import { CreatePostUseCase } from '../../../../domains/post/useCases/CreatePostUseCase';
+import { GetPostsByAuthorUseCase } from '../../../../domains/post/useCases/GetPostsByAuthor.useCase';
 
 // Definimos la estructura del estado
 interface PostState {
@@ -21,7 +21,7 @@ const initialState: PostState = {
 // Creamos nuestro thunk para crear posts
 export const createPost = createAsyncThunk(
   'posts/create',
-  async (data: CreatePostDTO) => {
+  async (data: PostDTO.Create) => {
     const createPostUseCase = container.resolve(CreatePostUseCase);
     const result = await createPostUseCase.execute(data);
     return result.post;
@@ -58,9 +58,8 @@ const postSlice = createSlice({
         state.error = null;
       })
       .addCase(createPost.fulfilled, (state, action: PayloadAction<Post>) => {
-        console.log('action', action.payload)
-        // state.items[action.payload.id] = action.payload;
-        // state.loading = false;
+        state.items[action.payload.id] = action.payload;
+        state.loading = false;
       })
       .addCase(createPost.rejected, (state, action) => {
         state.loading = false;

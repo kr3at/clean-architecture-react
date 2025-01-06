@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
-import { UseCase } from '../../../shared/domain/UseCase';
-import { Post } from '../entity/Post';
-import * as PostRepository from '../repository/PostRepository';
+import { Post } from '../entity/Post.entity';
+import { UseCase } from '../../../shared/domain/UseCase.shared';
+import * as PostRepositoryInterface from '../repository/PostRepository.interface';
 
 interface GetPostsByAuthorParams {
   authorId: string;
@@ -14,7 +14,7 @@ interface GetPostsByAuthorResult {
 @injectable()
 export class GetPostsByAuthorUseCase implements UseCase<GetPostsByAuthorParams, GetPostsByAuthorResult> {
   constructor(
-    @inject('PostRepository') private postRepository: PostRepository.PostRepository
+    @inject('PostRepository') private postRepository: PostRepositoryInterface.PostRepository
   ) {}
 
   async execute({ authorId }: GetPostsByAuthorParams): Promise<GetPostsByAuthorResult> {

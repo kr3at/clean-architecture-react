@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Post } from "../entity/Post";
-import { useUpdatePostField } from "../hooks/useUpdatePostField";
+import { Post } from "../entity/Post.entity";
+import { useUpdatePostField } from "../hooks/useUpdatePostField.hook";
 
 interface InlineEditFieldProps {
   postId: string;

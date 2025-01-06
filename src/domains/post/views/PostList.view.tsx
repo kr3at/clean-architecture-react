@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PostList } from '../components/PostList';
+import { PostList } from '../components/PostList.component';
 
 export const PostListPage: React.FC = () => {
   const navigate = useNavigate();
