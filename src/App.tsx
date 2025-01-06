@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PostListPage } from './domains/post/views/PostList';
-import { CreatePostPage } from './domains/post/views/CreatePost';
-import { NotificationCenter } from './domains/notification/components/NotificationCenter';
+import { NotificationCenter } from './domains/notification/components/NotificationCenter.component';
+import { PostListPage } from './domains/post/views/PostList.view';
+import { CreatePostPage } from './domains/post/views/CreatePost.view';
 
 function App() {
   return (

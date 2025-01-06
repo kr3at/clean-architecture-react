@@ -6,7 +6,7 @@ import { CreatePostUseCase } from '../../../../domains/post/useCases/CreatePostU
 import { GetPostsByAuthorUseCase } from '../../../../domains/post/useCases/GetPostsByAuthor.useCase';
 
 // Definimos la estructura del estado
-interface PostState {
+export interface PostState {
   items: Record<string, Post>;
   loading: boolean;
   error: string | null;
